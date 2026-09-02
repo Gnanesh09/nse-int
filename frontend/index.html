@@ -4,98 +4,65 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>South Deccan Capital — NSE Intelligence</title>
 
-    <title>South Decan Capital — NSE Intelligence</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        display: ["Georgia", "serif"],
-                        sans: ["Inter", "Arial", "sans-serif"]
-                    },
-                    colors: {
-                        sd: {
-                            bg: "#070809",
-                            panel: "#0d0f11",
-                            panel2: "#111316",
-                            border: "#24272b",
-                            gold: "#c7a35e",
-                            goldSoft: "#ddc58d",
-                            muted: "#85878c",
-                            text: "#ece8df"
-                        }
-                    },
-                    boxShadow: {
-                        luxury:
-                            "0 20px 60px rgba(0,0,0,.35)",
-                        gold:
-                            "0 0 40px rgba(199,163,94,.08)"
-                    }
-                }
-            }
-        };
-    </script>
-
     <style>
+        /* ========================================================
+           👇 CHANGE THESE VARIABLES TO UPDATE THE ENTIRE THEME 👇
+        ======================================================== */
+        :root {
+            --theme: #bcff20;
+            /* Main Color (Yellow) */
+            --theme-hover: #9bea08;
+            /* Button Hover (Darker Yellow) */
+            --theme-muted: rgba(151, 250, 21, 0.1);
+            /* Faded backgrounds */
+            --theme-border: rgba(151, 250, 21, 0.25);
+            /* Subtle borders */
+        }
+
         html {
             scroll-behavior: smooth;
         }
 
         body {
-            background:
-                radial-gradient(circle at 15% 0%,
-                    rgba(199, 163, 94, .08),
-                    transparent 25%),
-                radial-gradient(circle at 90% 10%,
-                    rgba(89, 72, 34, .10),
-                    transparent 22%),
-                #070809;
+            background-color: #000000;
         }
 
-        .glass {
-            background:
-                linear-gradient(180deg,
-                    rgba(20, 22, 25, .90),
-                    rgba(12, 14, 17, .92));
-            border: 1px solid rgba(255, 255, 255, .06);
-            backdrop-filter: blur(18px);
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #3f3f46 transparent;
         }
 
-        .gold-line {
-            background:
-                linear-gradient(90deg,
-                    transparent,
-                    rgba(199, 163, 94, .65),
-                    transparent);
+        /* Hide scrollbar for the sticky left panel but allow scrolling */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
         }
 
-        .luxury-border {
-            position: relative;
-            overflow: hidden;
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
 
-        .luxury-border::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            border: 1px solid rgba(199, 163, 94, .08);
-            border-radius: inherit;
+        ::selection {
+            background: var(--theme-muted);
+            color: var(--theme);
         }
 
         .stock-chip {
-            animation: chipIn .18s ease-out;
+            animation: chipIn .15s ease-out;
         }
 
         @keyframes chipIn {
             from {
                 opacity: 0;
-                transform: translateY(4px);
+                transform: translateY(2px);
             }
 
             to {
@@ -105,12 +72,12 @@
         }
 
         .loader {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             border-radius: 50%;
-            border: 2px solid rgba(255, 255, 255, .12);
-            border-top-color: #c7a35e;
-            animation: spin .7s linear infinite;
+            border: 2px solid #27272a;
+            border-top-color: var(--theme);
+            animation: spin .6s linear infinite;
         }
 
         @keyframes spin {
@@ -120,3677 +87,626 @@
         }
 
         .score-fill {
-            transition: width .55s ease;
-        }
-
-        .announcement-card {
-            transition:
-                transform .18s ease,
-                border-color .18s ease,
-                box-shadow .18s ease;
-        }
-
-        .announcement-card:hover {
-            transform: translateY(-2px);
-            border-color: rgba(199, 163, 94, .20);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, .20);
-        }
-
-        * {
-            scrollbar-width: thin;
-            scrollbar-color: #31343a transparent;
-        }
-
-        ::selection {
-            background: rgba(199, 163, 94, .25);
+            transition: width .5s ease;
         }
     </style>
-</head>
-
-<body class="min-h-screen text-sd-text font-sans">
-
-    <!-- ======================================================
-       HEADER
-  ======================================================= -->
-
-    <header class="
-      sticky
-      top-0
-      z-50
-      border-b
-      border-white/5
-      bg-[#070809]/85
-      backdrop-blur-xl
-    ">
-
-        <div class="
-        max-w-7xl
-        mx-auto
-        px-5
-        md:px-8
-        py-4
-        flex
-        items-center
-        justify-between
-        gap-4
-      ">
-
-            <div class="flex items-center gap-4">
-
-                <div class="
-            w-11
-            h-11
-            rounded-xl
-            border
-            border-[#c7a35e]/20
-            bg-[#111316]
-            flex
-            items-center
-            justify-center
-            shadow-gold
-          ">
-
-                    <span class="
-              font-display
-              text-xl
-              text-[#c7a35e]
-            ">
-                        S
-                    </span>
-
-                </div>
-
-                <div>
-
-                    <div class="
-              text-[10px]
-              uppercase
-              tracking-[.28em]
-              text-[#c7a35e]
-              font-semibold
-            ">
-                        South Decan Capital
-                    </div>
-
-                    <div class="
-              text-base
-              md:text-lg
-              font-semibold
-              text-[#eeeae1]
-            ">
-                        NSE Intelligence
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div id="statusBadge" class="
-          hidden
-          md:flex
-          items-center
-          gap-2
-          px-3
-          py-2
-          rounded-lg
-          bg-[#111316]
-          border
-          border-white/5
-        ">
-
-                <span id="statusDot" class="
-            w-2
-            h-2
-            rounded-full
-            bg-gray-500
-          "></span>
-
-                <span id="statusText" class="
-            text-xs
-            text-gray-500
-          ">
-                    Checking API
-                </span>
-
-            </div>
-
-        </div>
-
-    </header>
-
-
-    <!-- ======================================================
-       MAIN
-  ======================================================= -->
-
-    <main class="
-      max-w-7xl
-      mx-auto
-      px-5
-      md:px-8
-      py-8
-      md:py-10
-    ">
-
-        <!-- ====================================================
-         HERO
-    ===================================================== -->
-
-        <section class="mb-8">
-
-            <div class="
-          flex
-          flex-col
-          xl:flex-row
-          xl:items-end
-          justify-between
-          gap-6
-        ">
-
-                <div class="max-w-4xl">
-
-                    <div class="
-              inline-flex
-              items-center
-              gap-2
-              rounded-full
-              border
-              border-[#c7a35e]/15
-              bg-[#c7a35e]/5
-              px-3
-              py-1.5
-              mb-5
-            ">
-
-                        <span class="
-                w-1.5
-                h-1.5
-                rounded-full
-                bg-[#c7a35e]
-              "></span>
-
-                        <span class="
-                text-[10px]
-                uppercase
-                tracking-[.18em]
-                text-[#c7a35e]
-              ">
-                            Corporate Filing Intelligence
-                        </span>
-
-                    </div>
-
-
-                    <h1 class="
-              font-display
-              text-4xl
-              md:text-5xl
-              xl:text-6xl
-              leading-[1.04]
-              text-[#f1ede4]
-            ">
-                        Know what
-                        <span class="text-[#c7a35e]">
-                            matters.
-                        </span>
-                    </h1>
-
-
-                    <p class="
-              mt-5
-              max-w-3xl
-              text-sm
-              md:text-base
-              leading-7
-              text-gray-400
-            ">
-                        Monitor NSE corporate announcements for the
-                        companies that matter to you. Filings are
-                        extracted, analyzed by Groq AI and delivered
-                        as a structured research brief.
-                    </p>
-
-                </div>
-
-
-                <button id="heroReportButton" onclick="openReportModal()" class="
-            shrink-0
-            inline-flex
-            items-center
-            justify-center
-            gap-2
-            rounded-xl
-            border
-            border-[#c7a35e]/25
-            bg-[#c7a35e]/10
-            hover:bg-[#c7a35e]/15
-            px-5
-            py-3
-            text-sm
-            font-semibold
-            text-[#e1c98d]
-            transition
-          ">
-                    Generate AI Brief
-                    <span>→</span>
-                </button>
-
-            </div>
-
-        </section>
-
-
-        <!-- ====================================================
-         TOP GRID
-    ===================================================== -->
-
-        <section class="
-        grid
-        xl:grid-cols-3
-        gap-6
-      ">
-
-            <!-- ==================================================
-           WATCHLIST
-      =================================================== -->
-
-            <div class="
-          xl:col-span-1
-          glass
-          luxury-border
-          rounded-2xl
-          p-5
-          md:p-6
-          shadow-luxury
-        ">
-
-                <!-- WATCHLIST TITLE -->
-
-                <div class="
-            flex
-            items-start
-            justify-between
-            gap-3
-            mb-6
-          ">
-
-                    <div>
-
-                        <div class="
-                text-[10px]
-                uppercase
-                tracking-[.2em]
-                text-[#c7a35e]
-                font-semibold
-              ">
-                            Personal Monitor
-                        </div>
-
-                        <h2 class="
-                font-display
-                text-2xl
-                mt-1
-                text-[#f0ece4]
-              ">
-                            My Watchlist
-                        </h2>
-
-                    </div>
-
-
-                    <div id="stockCount" class="
-              px-2.5
-              py-1
-              rounded-md
-              bg-white/[.035]
-              border
-              border-white/5
-              text-[11px]
-              text-gray-400
-            ">
-                        0 stocks
-                    </div>
-
-                </div>
-
-
-                <!-- EMAIL -->
-
-                <label for="emailInput" class="
-            block
-            mb-2
-            text-[11px]
-            uppercase
-            tracking-wider
-            text-gray-500
-          ">
-                    Delivery email
-                </label>
-
-                <input id="emailInput" type="email" placeholder="you@example.com" class="
-            w-full
-            rounded-xl
-            border
-            border-[#25282c]
-            bg-[#090b0d]
-            px-4
-            py-3.5
-            text-sm
-            text-gray-200
-            placeholder:text-gray-700
-            outline-none
-            focus:border-[#c7a35e]/40
-            transition
-          " />
-
-
-                <!-- BULK INPUT -->
-
-                <div class="mt-6">
-
-                    <div class="
-              flex
-              items-center
-              justify-between
-              mb-2
-            ">
-
-                        <label for="stockBulkInput" class="
-                text-[11px]
-                uppercase
-                tracking-wider
-                text-gray-500
-              ">
-                            Add stocks
-                        </label>
-
-                        <span class="
-                text-[10px]
-                text-gray-700
-              ">
-                            Comma separated
-                        </span>
-
-                    </div>
-
-
-                    <textarea id="stockBulkInput" rows="4" placeholder="RELIANCE, TCS, INFY, HDFCBANK, COALINDIA" class="
-              w-full
-              rounded-xl
-              border
-              border-[#25282c]
-              bg-[#090b0d]
-              px-4
-              py-3.5
-              text-sm
-              uppercase
-              tracking-wide
-              text-gray-200
-              placeholder:text-gray-700
-              outline-none
-              resize-none
-              focus:border-[#c7a35e]/40
-              transition
-            "></textarea>
-
-
-                    <div class="
-              flex
-              flex-col
-              sm:flex-row
-              sm:items-center
-              justify-between
-              gap-3
-              mt-2
-            ">
-
-                        <p class="
-                text-[10px]
-                leading-5
-                text-gray-600
-              ">
-                            Paste one or multiple NSE symbols.
-                        </p>
-
-
-                        <button onclick="addBulkStocks()" class="
-                shrink-0
-                rounded-lg
-                bg-[#c7a35e]
-                hover:bg-[#d8b974]
-                px-4
-                py-2.5
-                text-xs
-                font-bold
-                text-[#101010]
-                transition
-              ">
-                            Add Stocks
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <!-- SINGLE STOCK -->
-
-                <div class="mt-5">
-
-                    <div class="
-              text-[10px]
-              uppercase
-              tracking-wider
-              text-gray-600
-              mb-2
-            ">
-                        Add one symbol
-                    </div>
-
-                    <div class="flex gap-2">
-
-                        <input id="stockInput" type="text" maxlength="30" autocomplete="off" placeholder="RELIANCE"
-                            onkeydown="handleSingleStockKey(event)" class="
-                flex-1
-                min-w-0
-                rounded-xl
-                border
-                border-[#25282c]
-                bg-[#090b0d]
-                px-4
-                py-3.5
-                text-sm
-                uppercase
-                text-gray-200
-                placeholder:text-gray-700
-                outline-none
-                focus:border-[#c7a35e]/40
-              " />
-
-                        <button onclick="addStock()" class="
-                w-12
-                rounded-xl
-                border
-                border-white/5
-                bg-[#15181b]
-                hover:bg-[#1b1e22]
-                text-lg
-                text-[#c7a35e]
-                transition
-              ">
-                            +
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <!-- CHIP LIST -->
-
-                <div class="mt-6">
-
-                    <div class="
-              text-[10px]
-              uppercase
-              tracking-wider
-              text-gray-600
-              mb-3
-            ">
-                        Selected companies
-                    </div>
-
-
-                    <div id="stockList" class="
-              flex
-              flex-wrap
-              gap-2
-              min-h-[48px]
-            "></div>
-
-                </div>
-
-
-                <!-- DIVIDER -->
-
-                <div class="
-            h-px
-            bg-gradient-to-r
-            from-transparent
-            via-[#c7a35e]/15
-            to-transparent
-            my-6
-          "></div>
-
-
-                <!-- ACTIONS -->
-
-                <button id="saveButton" onclick="saveWatchlist()" class="
-            w-full
-            rounded-xl
-            bg-[#f0ebe0]
-            hover:bg-white
-            py-3.5
-            text-sm
-            font-bold
-            text-[#121212]
-            transition
-          ">
-                    Save Watchlist
-                </button>
-
-
-                <button onclick="openReportModal()" class="
-            w-full
-            mt-2
-            rounded-xl
-            border
-            border-white/5
-            bg-[#111316]
-            hover:bg-[#16191d]
-            py-3.5
-            text-sm
-            font-semibold
-            text-gray-300
-            transition
-          ">
-                    Analyse & Email Brief
-                </button>
-
-
-                <!-- MESSAGE -->
-
-                <div id="message" class="
-            hidden
-            mt-4
-            rounded-xl
-            p-3
-            text-xs
-            leading-5
-          "></div>
-
-            </div>
-
-
-            <!-- ==================================================
-           DASHBOARD
-      =================================================== -->
-
-            <div class="
-          xl:col-span-2
-          space-y-6
-        ">
-
-                <!-- STATS -->
-
-                <div class="
-            grid
-            grid-cols-1
-            sm:grid-cols-3
-            gap-4
-          ">
-
-                    <div class="
-              glass
-              rounded-2xl
-              p-5
-            ">
-
-                        <div class="
-                text-[10px]
-                uppercase
-                tracking-[.17em]
-                text-gray-600
-              ">
-                            Watching
-                        </div>
-
-                        <div id="statStocks" class="
-                mt-3
-                font-display
-                text-3xl
-                text-[#eeeae1]
-              ">
-                            0
-                        </div>
-
-                        <div class="
-                mt-1
-                text-[11px]
-                text-gray-600
-              ">
-                            NSE symbols
-                        </div>
-
-                    </div>
-
-
-                    <div class="
-              glass
-              rounded-2xl
-              p-5
-            ">
-
-                        <div class="
-                text-[10px]
-                uppercase
-                tracking-[.17em]
-                text-gray-600
-              ">
-                            Latest filings
-                        </div>
-
-                        <div id="statAnnouncements" class="
-                mt-3
-                font-display
-                text-3xl
-                text-[#eeeae1]
-              ">
-                            —
-                        </div>
-
-                        <div class="
-                mt-1
-                text-[11px]
-                text-gray-600
-              ">
-                            Stored in MongoDB
-                        </div>
-
-                    </div>
-
-
-                    <div class="
-              glass
-              rounded-2xl
-              p-5
-            ">
-
-                        <div class="
-                text-[10px]
-                uppercase
-                tracking-[.17em]
-                text-gray-600
-              ">
-                            Intelligence
-                        </div>
-
-                        <div id="statAI" class="
-                mt-3
-                font-display
-                text-3xl
-                text-[#c7a35e]
-              ">
-                            Ready
-                        </div>
-
-                        <div class="
-                mt-1
-                text-[11px]
-                text-gray-600
-              ">
-                            Groq + LangGraph
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- ANNOUNCEMENTS -->
-
-                <div class="
-            glass
-            rounded-2xl
-            overflow-hidden
-          ">
-
-                    <div class="
-              px-5
-              md:px-6
-              py-5
-              border-b
-              border-white/5
-              flex
-              items-center
-              justify-between
-              gap-4
-            ">
-
-                        <div>
-
-                            <div class="
-                  text-[10px]
-                  uppercase
-                  tracking-[.2em]
-                  text-[#c7a35e]
-                ">
-                                Intelligence Feed
-                            </div>
-
-                            <h2 class="
-                  font-display
-                  text-2xl
-                  mt-1
-                ">
-                                Latest Analysis
-                            </h2>
-
-                        </div>
-
-
-                        <button onclick="loadAnnouncements()" class="
-                text-xs
-                text-gray-500
-                hover:text-[#c7a35e]
-                transition
-              ">
-                            Refresh
-                        </button>
-
-                    </div>
-
-
-                    <div id="announcementList" class="p-5 md:p-6">
-
-                        <div class="
-                py-16
-                text-center
-              ">
-
-                            <div class="
-                  w-14
-                  h-14
-                  mx-auto
-                  rounded-2xl
-                  border
-                  border-white/5
-                  bg-[#111316]
-                  flex
-                  items-center
-                  justify-center
-                  text-[#c7a35e]
-                  text-xl
-                ">
-                                ◌
-                            </div>
-
-
-                            <h3 class="
-                  mt-4
-                  font-semibold
-                  text-gray-300
-                ">
-                                No analysis loaded
-                            </h3>
-
-
-                            <p class="
-                  mt-2
-                  text-sm
-                  text-gray-600
-                ">
-                                Add stocks and generate your first
-                                intelligence brief.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ====================================================
-         WORKFLOW
-    ===================================================== -->
-
-        <section class="mt-8">
-
-            <div class="
-          glass
-          rounded-2xl
-          p-6
-        ">
-
-                <div class="
-            flex
-            flex-col
-            md:flex-row
-            md:items-end
-            justify-between
-            gap-4
-            mb-6
-          ">
-
-                    <div>
-
-                        <div class="
-                text-[10px]
-                uppercase
-                tracking-[.2em]
-                text-[#c7a35e]
-              ">
-                            Research Pipeline
-                        </div>
-
-                        <h2 class="
-                font-display
-                text-2xl
-                mt-1
-              ">
-                            From filing to intelligence
-                        </h2>
-
-                    </div>
-
-                </div>
-
-
-                <div class="
-            grid
-            sm:grid-cols-2
-            xl:grid-cols-5
-            gap-3
-          ">
-
-                    <div class="
-              rounded-xl
-              border
-              border-white/5
-              bg-[#0a0c0e]
-              p-4
-            ">
-
-                        <div class="
-                text-[10px]
-                text-[#c7a35e]
-                font-bold
-              ">
-                            01
-                        </div>
-
-                        <div class="
-                mt-3
-                font-semibold
-                text-sm
-              ">
-                            NSE
-                        </div>
-
-                        <div class="
-                mt-1
-                text-xs
-                leading-5
-                text-gray-600
-              ">
-                            Corporate announcements collected.
-                        </div>
-
-                    </div>
-
-
-                    <div class="
-              rounded-xl
-              border
-              border-white/5
-              bg-[#0a0c0e]
-              p-4
-            ">
-
-                        <div class="
-                text-[10px]
-                text-[#c7a35e]
-                font-bold
-              ">
-                            02
-                        </div>
-
-                        <div class="
-                mt-3
-                font-semibold
-                text-sm
-              ">
-                            Filing
-                        </div>
-
-                        <div class="
-                mt-1
-                text-xs
-                leading-5
-                text-gray-600
-              ">
-                            Attached company PDFs extracted.
-                        </div>
-
-                    </div>
-
-
-                    <div class="
-              rounded-xl
-              border
-              border-white/5
-              bg-[#0a0c0e]
-              p-4
-            ">
-
-                        <div class="
-                text-[10px]
-                text-[#c7a35e]
-                font-bold
-              ">
-                            03
-                        </div>
-
-                        <div class="
-                mt-3
-                font-semibold
-                text-sm
-              ">
-                            LangGraph
-                        </div>
-
-                        <div class="
-                mt-1
-                text-xs
-                leading-5
-                text-gray-600
-              ">
-                            Filing evidence processed through the AI graph.
-                        </div>
-
-                    </div>
-
-
-                    <div class="
-              rounded-xl
-              border
-              border-white/5
-              bg-[#0a0c0e]
-              p-4
-            ">
-
-                        <div class="
-                text-[10px]
-                text-[#c7a35e]
-                font-bold
-              ">
-                            04
-                        </div>
-
-                        <div class="
-                mt-3
-                font-semibold
-                text-sm
-              ">
-                            Groq
-                        </div>
-
-                        <div class="
-                mt-1
-                text-xs
-                leading-5
-                text-gray-600
-              ">
-                            Structured institutional-style analysis.
-                        </div>
-
-                    </div>
-
-
-                    <div class="
-              rounded-xl
-              border
-              border-[#c7a35e]/10
-              bg-[#c7a35e]/[.025]
-              p-4
-            ">
-
-                        <div class="
-                text-[10px]
-                text-[#c7a35e]
-                font-bold
-              ">
-                            05
-                        </div>
-
-                        <div class="
-                mt-3
-                font-semibold
-                text-sm
-              ">
-                            South Decan
-                        </div>
-
-                        <div class="
-                mt-1
-                text-xs
-                leading-5
-                text-gray-600
-              ">
-                            Research brief delivered to your inbox.
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- ======================================================
-       REPORT MODAL
-  ======================================================= -->
-
-    <div id="reportModal" class="
-      hidden
-      fixed
-      inset-0
-      z-[100]
-      bg-black/80
-      backdrop-blur-md
-      p-4
-      md:p-8
-    ">
-
-        <div class="
-        max-w-2xl
-        mx-auto
-        mt-8
-        md:mt-16
-        max-h-[88vh]
-        overflow-y-auto
-        glass
-        rounded-2xl
-        shadow-2xl
-      ">
-
-            <div class="
-          px-6
-          py-5
-          border-b
-          border-white/5
-          flex
-          items-center
-          justify-between
-          sticky
-          top-0
-          bg-[#0d0f11]/95
-          backdrop-blur-xl
-          z-10
-        ">
-
-                <div>
-
-                    <div class="
-              text-[10px]
-              uppercase
-              tracking-[.2em]
-              text-[#c7a35e]
-            ">
-                        South Decan Capital
-                    </div>
-
-                    <h2 class="
-              font-display
-              text-2xl
-              mt-1
-            ">
-                        Generate Intelligence Brief
-                    </h2>
-
-                </div>
-
-
-                <button onclick="closeReportModal()" class="
-            w-9
-            h-9
-            rounded-lg
-            bg-[#15181b]
-            hover:bg-[#1a1d20]
-            text-gray-500
-            hover:text-white
-            transition
-          ">
-                    ×
-                </button>
-
-            </div>
-
-
-            <div class="p-6">
-
-                <!-- SUMMARY -->
-
-                <div class="
-            rounded-xl
-            border
-            border-[#c7a35e]/10
-            bg-[#c7a35e]/[.035]
-            p-5
-          ">
-
-                    <div class="
-              flex
-              gap-3
-            ">
-
-                        <div class="
-                w-9
-                h-9
-                rounded-lg
-                bg-[#c7a35e]/10
-                flex
-                items-center
-                justify-center
-                text-[#c7a35e]
-              ">
-                            ✦
-                        </div>
-
-
-                        <div>
-
-                            <div class="
-                  text-sm
-                  font-semibold
-                  text-gray-200
-                ">
-                                AI filing analysis
-                            </div>
-
-                            <div class="
-                  mt-1
-                  text-xs
-                  leading-5
-                  text-gray-500
-                ">
-                                Current NSE announcements matching
-                                your watchlist will be analyzed and
-                                consolidated into one email.
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- WATCHLIST SUMMARY -->
-
-                <div class="mt-6">
-
-                    <div class="
-              text-[10px]
-              uppercase
-              tracking-[.18em]
-              text-gray-600
-              mb-3
-            ">
-                        Watchlist
-                    </div>
-
-
-                    <div id="modalWatchlist" class="
-              flex
-              flex-wrap
-              gap-2
-            "></div>
-
-                </div>
-
-
-                <!-- STATUS -->
-
-                <div id="reportStatus" class="
-            mt-6
-            text-sm
-            leading-6
-            text-gray-500
-          ">
-                    Ready to generate.
-                </div>
-
-
-                <!-- RESULT -->
-
-                <div id="reportResult" class="hidden mt-5"></div>
-
-
-                <!-- BUTTON -->
-
-                <button id="generateButton" onclick="generateReport()" class="
-            w-full
-            mt-6
-            rounded-xl
-            bg-[#c7a35e]
-            hover:bg-[#d6b66f]
-            py-3.5
-            font-bold
-            text-sm
-            text-[#111]
-            transition
-          ">
-                    Generate & Send Brief
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <!-- ======================================================
-       JAVASCRIPT
-  ======================================================= -->
 
     <script>
+        // Mapping CSS variables to Tailwind classes
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"]
+                    },
+                    colors: {
+                        theme: 'var(--theme)',
+                        'theme-hover': 'var(--theme-hover)',
+                        'theme-muted': 'var(--theme-muted)',
+                        'theme-border': 'var(--theme-border)',
+                        zinc: {
+                            850: '#1f1f22',
+                            950: '#09090b',
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+</head>
 
-        /* =====================================================
-           CONFIG
-        ====================================================== */
+<body class="min-h-screen text-zinc-400 font-sans antialiased">
 
+    <header class="sticky top-0 z-50 border-b border-zinc-800 bg-black/80 backdrop-blur-md">
+        <div class="max-w-7xl  px-5 md:px-8 py-4 flex items-center justify-between gap-4">
+
+            <div class="flex items-center gap-4">
+                <div
+                    class="w-10 h-10 rounded bg-theme text-black flex items-center justify-center font-bold text-xl tracking-tighter">
+                    ZR
+                </div>
+                <div>
+
+                    <div class="text-xl md:text-base font-semibold text-white">
+                        Zarc
+                    </div>
+                    <div class="text-[10px]  tracking-widest text-zinc-400 font-medium">
+                        by zoofly
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="statusBadge"
+                class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-md bg-zinc-900 border border-zinc-800">
+                <span id="statusDot" class="w-1.5 h-1.5 rounded-full bg-zinc-500"></span>
+                <span id="statusText" class="text-xs font-medium text-zinc-400">Checking API</span>
+            </div>
+            <button id="heroReportButton" onclick="openReportModal()"
+                class="shrink-0 inline-flex items-center justify-center gap-2 rounded-md bg-theme hover:bg-theme-hover px-6 py-3 text-sm font-semibold text-black transition-colors">
+                Generate Brief
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-2 md:px-2 py-2 md:py-2">
+
+        <section class="mb-10">
+            <div class="flex flex-col xl:flex-row xl:items-end justify-between gap-8">
+
+
+
+            </div>
+        </section>
+
+        <section class="grid xl:grid-cols-3 gap-6 items-start relative">
+
+            <div
+                class="xl:col-span-1 xl:sticky xl:top-24 xl:max-h-[calc(100vh-7rem)] overflow-y-auto no-scrollbar bg-zinc-950 border border-zinc-800 rounded-xl p-5 md:p-6 shadow-2xl">
+
+                <div class="flex items-start justify-between gap-3 mb-6">
+                    <div>
+                        <h2 class="text-lg font-semibold text-white tracking-tight">Personal Monitor</h2>
+                    </div>
+                    <div id="stockCount"
+                        class="px-2 py-1 rounded bg-theme-muted border border-theme-border text-[10px] font-bold text-theme uppercase tracking-wide">
+                        0 tickers
+                    </div>
+                </div>
+
+                <div class="space-y-1.5 mb-5">
+                    <label for="emailInput"
+                        class="block text-[11px] font-medium uppercase tracking-wider text-zinc-500">Delivery
+                        email</label>
+                    <input id="emailInput" type="email" placeholder="analyst@southdeccan.com"
+                        class="w-full rounded-md border border-zinc-800 bg-black px-3.5 py-2.5 text-sm text-white placeholder:text-zinc-700 outline-none focus:border-theme focus:ring-1 focus:ring-theme transition-all" />
+                </div>
+
+                <div class="space-y-1.5 mb-5">
+                    <div class="flex items-center justify-between">
+                        <label for="stockBulkInput"
+                            class="text-[11px] font-medium uppercase tracking-wider text-zinc-500">Bulk Add</label>
+                        <span class="text-[10px] text-zinc-600">CSV format</span>
+                    </div>
+                    <textarea id="stockBulkInput" rows="3" placeholder="RELIANCE, TCS, HDFCBANK"
+                        class="w-full rounded-md border border-zinc-800 bg-black px-3.5 py-2.5 text-sm uppercase tracking-wide text-white placeholder:text-zinc-700 outline-none resize-none focus:border-theme focus:ring-1 focus:ring-theme transition-all"></textarea>
+
+                    <button onclick="addBulkStocks()"
+                        class="w-full mt-2 rounded-md border border-zinc-800 hover:border-theme hover:bg-theme-muted px-4 py-2 text-xs font-semibold text-theme transition-colors">
+                        Process Batch
+                    </button>
+                </div>
+
+                <div class="space-y-1.5 mb-6">
+                    <label class="text-[11px] font-medium uppercase tracking-wider text-zinc-500">Single Add</label>
+                    <div class="flex gap-2">
+                        <input id="stockInput" type="text" maxlength="30" autocomplete="off" placeholder="SYMBOL"
+                            onkeydown="handleSingleStockKey(event)"
+                            class="flex-1 min-w-0 rounded-md border border-zinc-800 bg-black px-3.5 py-2 text-sm uppercase text-white placeholder:text-zinc-700 outline-none focus:border-theme focus:ring-1 focus:ring-theme transition-all" />
+                        <button onclick="addStock()"
+                            class="w-10 rounded-md border border-zinc-800 bg-zinc-900 hover:bg-theme hover:border-theme text-zinc-400 hover:text-black flex items-center justify-center transition-all">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 4v16m8-8H4"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <div class="text-[11px] font-medium uppercase tracking-wider text-zinc-500 mb-3">Active Watchlist
+                    </div>
+                    <div id="stockList" class="flex flex-wrap gap-1.5 min-h-[40px]"></div>
+                </div>
+
+                <hr class="border-zinc-800/60 my-6">
+
+                <div class="space-y-2 relative pb-2">
+                    <button id="saveButton" onclick="saveWatchlist()"
+                        class="w-full rounded-md bg-theme hover:bg-theme-hover py-2.5 text-sm font-semibold text-black transition-colors">
+                        Save Configuration
+                    </button>
+                    <button onclick="openReportModal()"
+                        class="w-full rounded-md border border-zinc-800 bg-black hover:border-theme-border hover:bg-theme-muted py-2.5 text-sm font-semibold text-theme transition-colors">
+                        Run Analysis Pipeline
+                    </button>
+                </div>
+
+                <div id="message" class="hidden mt-2 rounded-md p-3 text-xs font-medium leading-5 border"></div>
+            </div>
+
+            <div class="xl:col-span-2 flex flex-col gap-6">
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5">
+                        <div class="text-[10px] uppercase tracking-widest font-semibold text-zinc-500">Monitored
+                            Equities</div>
+                        <div id="statStocks" class="mt-2 text-3xl font-bold tracking-tight text-white">0</div>
+                    </div>
+                    <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5">
+                        <div class="text-[10px] uppercase tracking-widest font-semibold text-zinc-500">Filings Indexed
+                        </div>
+                        <div id="statAnnouncements" class="mt-2 text-3xl font-bold tracking-tight text-white">—</div>
+                    </div>
+                    <div class="bg-zinc-950 border border-zinc-800 rounded-xl p-5 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-theme-muted pointer-events-none"></div>
+                        <div class="text-[10px] uppercase tracking-widest font-semibold text-theme relative">Pipeline
+                            Status</div>
+                        <div id="statAI"
+                            class="mt-2 text-xl font-bold tracking-tight text-white flex items-center h-9 relative">
+                            Standby</div>
+                    </div>
+                </div>
+
+                <div class="bg-zinc-950 border border-zinc-800 rounded-xl flex-1 flex flex-col overflow-hidden">
+                    <div class="px-5 py-4 border-b border-zinc-800 flex items-center justify-between bg-zinc-900/30">
+                        <h2 class="text-sm font-semibold text-white uppercase tracking-wider">Intelligence Feed</h2>
+                        <button onclick="loadAnnouncements()"
+                            class="text-xs font-medium text-theme hover:text-theme-hover transition-colors flex items-center gap-1">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                                </path>
+                            </svg>
+                            Refresh
+                        </button>
+                    </div>
+
+                    <div id="announcementList" class="p-5 md:p-6 flex-1 bg-black">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="reportModal"
+        class="hidden fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm p-4 md:p-8 flex items-center justify-center">
+        <div
+            class="w-full max-w-lg max-h-[90vh] overflow-y-auto no-scrollbar bg-zinc-950 border border-zinc-800 rounded-xl shadow-2xl flex flex-col">
+
+            <div
+                class="px-6 py-4 border-b border-zinc-800 flex items-center justify-between bg-zinc-950 sticky top-0 z-10">
+                <h2 class="font-semibold text-white tracking-tight">Run Intelligence Pipeline</h2>
+                <button onclick="closeReportModal()" class="text-zinc-500 hover:text-white transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="p-6">
+                <div class="rounded-md border border-theme-border bg-theme-muted p-4 mb-6">
+                    <h3 class="text-sm font-medium text-theme">Execution Summary</h3>
+                    <p class="mt-1 text-xs text-zinc-400 leading-relaxed">
+                        The system will aggregate the latest NSE corporate filings for your active watchlist, process
+                        them through the reasoning engine, and dispatch a structured brief to your email.
+                    </p>
+                </div>
+
+                <div class="mb-6">
+                    <div class="text-[10px] uppercase tracking-widest font-semibold text-zinc-500 mb-2">Target Entities
+                    </div>
+                    <div id="modalWatchlist" class="flex flex-wrap gap-1.5"></div>
+                </div>
+
+                <div id="reportStatus" class="text-sm font-medium text-zinc-400 mb-6">Ready for execution.</div>
+
+                <div id="reportResult" class="hidden mb-6"></div>
+
+                <button id="generateButton" onclick="generateReport()"
+                    class="w-full rounded-md bg-theme hover:bg-theme-hover py-3 text-sm font-semibold text-black transition-colors">
+                    Execute Pipeline & Send
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
         const API_BASE = "";
-
-
-        /* =====================================================
-           STATE
-        ====================================================== */
-
         let watchlist = [];
 
+        const emailInput = document.getElementById("emailInput");
+        const stockInput = document.getElementById("stockInput");
+        const stockBulkInput = document.getElementById("stockBulkInput");
+        const stockList = document.getElementById("stockList");
 
-        /* =====================================================
-           DOM
-        ====================================================== */
-
-        const emailInput =
-            document.getElementById("emailInput");
-
-        const stockInput =
-            document.getElementById("stockInput");
-
-        const stockBulkInput =
-            document.getElementById("stockBulkInput");
-
-        const stockList =
-            document.getElementById("stockList");
-
-
-        /* =====================================================
-           INIT
-        ====================================================== */
-
-        document.addEventListener(
-            "DOMContentLoaded",
-            async () => {
-
-                loadLocalState();
-
-                renderWatchlist();
-
-                updateModalWatchlist();
-
-                await checkHealth();
-
-                if (
-                    emailInput.value.trim()
-                    &&
-                    watchlist.length
-                ) {
-
-                    await loadAnnouncements();
-
-                }
-
+        document.addEventListener("DOMContentLoaded", async () => {
+            loadLocalState();
+            renderWatchlist();
+            updateModalWatchlist();
+            await checkHealth();
+            if (emailInput.value.trim() && watchlist.length) {
+                await loadAnnouncements();
             }
-        );
-
-
-        /* =====================================================
-           LOCAL STATE
-        ====================================================== */
+        });
 
         function loadLocalState() {
-
-            const savedEmail =
-                localStorage.getItem(
-                    "south_decan_email"
-                );
-
-            const savedWatchlist =
-                localStorage.getItem(
-                    "south_decan_watchlist"
-                );
-
-
-            if (savedEmail) {
-
-                emailInput.value =
-                    savedEmail;
-
-            }
-
-
+            const savedEmail = localStorage.getItem("south_decan_email");
+            const savedWatchlist = localStorage.getItem("south_decan_watchlist");
+            if (savedEmail) emailInput.value = savedEmail;
             if (savedWatchlist) {
-
                 try {
-
-                    const parsed =
-                        JSON.parse(
-                            savedWatchlist
-                        );
-
-                    if (
-                        Array.isArray(parsed)
-                    ) {
-
-                        watchlist =
-                            parsed
-                                .map(
-                                    value =>
-                                        String(value)
-                                            .trim()
-                                            .toUpperCase()
-                                )
-                                .filter(Boolean);
-
+                    const parsed = JSON.parse(savedWatchlist);
+                    if (Array.isArray(parsed)) {
+                        watchlist = parsed.map(v => String(v).trim().toUpperCase()).filter(Boolean);
                     }
-
-                } catch {
-
-                    watchlist = [];
-
-                }
-
+                } catch { watchlist = []; }
             }
-
         }
-
 
         function saveLocalState() {
-
-            localStorage.setItem(
-                "south_decan_email",
-                emailInput.value.trim()
-            );
-
-            localStorage.setItem(
-                "south_decan_watchlist",
-                JSON.stringify(
-                    watchlist
-                )
-            );
-
+            localStorage.setItem("south_decan_email", emailInput.value.trim());
+            localStorage.setItem("south_decan_watchlist", JSON.stringify(watchlist));
         }
 
-
-        /* =====================================================
-           API
-        ====================================================== */
-
-        async function api(
-            path,
-            options = {}
-        ) {
-
-            const response =
-                await fetch(
-                    API_BASE + path,
-                    {
-                        ...options,
-
-                        headers: {
-                            "Content-Type":
-                                "application/json",
-
-                            ...(options.headers || {})
-                        }
-                    }
-                );
-
-
+        async function api(path, options = {}) {
+            const response = await fetch(API_BASE + path, {
+                ...options,
+                headers: { "Content-Type": "application/json", ...(options.headers || {}) }
+            });
             let data = {};
-
-
-            try {
-
-                data =
-                    await response.json();
-
-            } catch {
-
-                data = {};
-
-            }
-
-
-            if (
-                !response.ok
-            ) {
-
-                throw new Error(
-                    data.detail
-                    ||
-                    data.message
-                    ||
-                    `Request failed: ${response.status}`
-                );
-
-            }
-
-
+            try { data = await response.json(); } catch { data = {}; }
+            if (!response.ok) throw new Error(data.detail || data.message || `Request failed: ${response.status}`);
             return data;
-
         }
-
-
-        /* =====================================================
-           HEALTH
-        ====================================================== */
 
         async function checkHealth() {
-
-            const dot =
-                document.getElementById(
-                    "statusDot"
-                );
-
-            const text =
-                document.getElementById(
-                    "statusText"
-                );
-
-
-            dot.className =
-                "w-2 h-2 rounded-full bg-yellow-400";
-
-            text.textContent =
-                "Checking API";
-
+            const dot = document.getElementById("statusDot");
+            const text = document.getElementById("statusText");
+            dot.className = "w-1.5 h-1.5 rounded-full bg-zinc-500";
+            text.textContent = "Connecting";
 
             try {
-
-                const data =
-                    await api(
-                        "/health"
-                    );
-
-
-                if (
-                    data.database === "up"
-                    &&
-                    data.groq === "configured"
-                ) {
-
-                    dot.className =
-                        "w-2 h-2 rounded-full bg-emerald-400";
-
-                    text.textContent =
-                        "API online • AI ready";
-
+                const data = await api("/health");
+                if (data.database === "up" && data.groq === "configured") {
+                    dot.className = "w-1.5 h-1.5 rounded-full bg-theme";
+                    text.textContent = "System Operational";
                 } else {
-
-                    dot.className =
-                        "w-2 h-2 rounded-full bg-yellow-400";
-
-                    text.textContent =
-                        "API online • configuration incomplete";
-
+                    dot.className = "w-1.5 h-1.5 rounded-full bg-zinc-500";
+                    text.textContent = "Degraded";
                 }
-
             } catch {
-
-                dot.className =
-                    "w-2 h-2 rounded-full bg-red-400";
-
-                text.textContent =
-                    "API offline";
-
+                dot.className = "w-1.5 h-1.5 rounded-full bg-red-500";
+                text.textContent = "Disconnected";
             }
-
         }
 
-
-        /* =====================================================
-           SYMBOL VALIDATION
-        ====================================================== */
-
-        function normalizeSymbol(
-            symbol
-        ) {
-
-            return String(
-                symbol || ""
-            )
-                .trim()
-                .toUpperCase()
-                .replace(
-                    /\s+/g,
-                    ""
-                );
-
+        function normalizeSymbol(symbol) {
+            return String(symbol || "").trim().toUpperCase().replace(/\s+/g, "");
         }
 
-
-        function isValidSymbol(
-            symbol
-        ) {
-
-            return /^[A-Z0-9&.\-]{1,30}$/
-                .test(
-                    symbol
-                );
-
+        function isValidSymbol(symbol) {
+            return /^[A-Z0-9&.\-]{1,30}$/.test(symbol);
         }
 
-
-        /* =====================================================
-           SINGLE STOCK
-        ====================================================== */
-
-        function handleSingleStockKey(
-            event
-        ) {
-
-            if (
-                event.key === "Enter"
-            ) {
-
+        function handleSingleStockKey(event) {
+            if (event.key === "Enter") {
                 event.preventDefault();
-
                 addStock();
-
             }
-
         }
-
 
         function addStock() {
+            const symbol = normalizeSymbol(stockInput.value);
+            if (!symbol) return showMessage("Enter an NSE symbol.", "error");
+            if (!isValidSymbol(symbol)) return showMessage(`"${symbol}" is not valid.`, "error");
+            if (watchlist.includes(symbol)) return showMessage(`${symbol} is already monitored.`, "error");
+            if (watchlist.length >= 200) return showMessage("Maximum 200 limits reached.", "error");
 
-            const symbol =
-                normalizeSymbol(
-                    stockInput.value
-                );
-
-
-            if (!symbol) {
-
-                showMessage(
-                    "Enter an NSE symbol.",
-                    "error"
-                );
-
-                return;
-
-            }
-
-
-            if (
-                !isValidSymbol(
-                    symbol
-                )
-            ) {
-
-                showMessage(
-                    `"${symbol}" is not a valid symbol format.`,
-                    "error"
-                );
-
-                return;
-
-            }
-
-
-            if (
-                watchlist.includes(
-                    symbol
-                )
-            ) {
-
-                showMessage(
-                    `${symbol} is already in your watchlist.`,
-                    "error"
-                );
-
-                return;
-
-            }
-
-
-            if (
-                watchlist.length >= 200
-            ) {
-
-                showMessage(
-                    "Maximum 200 stocks allowed.",
-                    "error"
-                );
-
-                return;
-
-            }
-
-
-            watchlist.push(
-                symbol
-            );
-
-
-            stockInput.value =
-                "";
-
-
+            watchlist.push(symbol);
+            stockInput.value = "";
             renderWatchlist();
-
             updateModalWatchlist();
-
             saveLocalState();
-
-
-            showMessage(
-                `${symbol} added to your watchlist.`,
-                "success"
-            );
-
         }
-
-
-        /* =====================================================
-           BULK STOCK ADDITION
-        ====================================================== */
 
         function addBulkStocks() {
+            const raw = stockBulkInput.value.trim();
+            if (!raw) return showMessage("Paste CSV symbols first.", "error");
 
-            const raw =
-                stockBulkInput.value.trim();
+            const symbols = raw.split(/[,;\n]+/).map(normalizeSymbol).filter(Boolean);
+            if (!symbols.length) return showMessage("No symbols found.", "error");
 
-
-            if (!raw) {
-
-                showMessage(
-                    "Paste comma-separated NSE symbols first.",
-                    "error"
-                );
-
-                stockBulkInput.focus();
-
-                return;
-
-            }
-
-
-            /*
-              Supports:
-      
-              RELIANCE,TCS,INFY
-      
-              RELIANCE, TCS, INFY
-      
-              RELIANCE
-              TCS
-              INFY
-      
-              RELIANCE;TCS;INFY
-            */
-
-            const symbols =
-                raw
-                    .split(
-                        /[,;\n]+/
-                    )
-                    .map(
-                        normalizeSymbol
-                    )
-                    .filter(Boolean);
-
-
-            if (
-                !symbols.length
-            ) {
-
-                showMessage(
-                    "No symbols found.",
-                    "error"
-                );
-
-                return;
-
-            }
-
-
-            let added = 0;
-
-            let duplicates = 0;
-
-            let invalid = 0;
-
-
-            for (
-                const symbol
-                of symbols
-            ) {
-
-                if (
-                    !isValidSymbol(
-                        symbol
-                    )
-                ) {
-
-                    invalid++;
-
-                    continue;
-
-                }
-
-
-                if (
-                    watchlist.includes(
-                        symbol
-                    )
-                ) {
-
-                    duplicates++;
-
-                    continue;
-
-                }
-
-
-                if (
-                    watchlist.length >= 200
-                ) {
-
-                    break;
-
-                }
-
-
-                watchlist.push(
-                    symbol
-                );
-
+            let added = 0, duplicates = 0, invalid = 0;
+            for (const symbol of symbols) {
+                if (!isValidSymbol(symbol)) { invalid++; continue; }
+                if (watchlist.includes(symbol)) { duplicates++; continue; }
+                if (watchlist.length >= 200) break;
+                watchlist.push(symbol);
                 added++;
-
             }
-
-
-            stockBulkInput.value =
-                "";
-
-
+            stockBulkInput.value = "";
             renderWatchlist();
-
             updateModalWatchlist();
-
             saveLocalState();
-
-
-            let message =
-                `${added} stock${added === 1 ? "" : "s"} added.`;
-
-
-            if (
-                duplicates
-            ) {
-
-                message +=
-                    ` ${duplicates} duplicate${duplicates === 1 ? "" : "s"} skipped.`;
-
-            }
-
-
-            if (
-                invalid
-            ) {
-
-                message +=
-                    ` ${invalid} invalid${invalid === 1 ? "" : " symbols"} skipped.`;
-
-            }
-
-
-            showMessage(
-                message,
-                added
-                    ? "success"
-                    : "error"
-            );
-
+            showMessage(`Processed: ${added} added, ${duplicates} duplicates skipped.`, added ? "success" : "error");
         }
 
-
-        /* =====================================================
-           REMOVE STOCK
-        ====================================================== */
-
-        function removeStock(
-            symbol
-        ) {
-
-            watchlist =
-                watchlist.filter(
-                    value =>
-                        value !== symbol
-                );
-
-
+        function removeStock(symbol) {
+            watchlist = watchlist.filter(v => v !== symbol);
             renderWatchlist();
-
             updateModalWatchlist();
-
             saveLocalState();
-
-
-            showMessage(
-                `${symbol} removed.`,
-                "success"
-            );
-
         }
-
-
-        /* =====================================================
-           RENDER WATCHLIST
-        ====================================================== */
 
         function renderWatchlist() {
-
-            stockList.innerHTML =
-                "";
-
-
-            if (
-                watchlist.length === 0
-            ) {
-
-                stockList.innerHTML = `
-          <div
-            class="
-              w-full
-              rounded-xl
-              border
-              border-dashed
-              border-white/5
-              py-4
-              text-center
-              text-xs
-              text-gray-700
-            "
-          >
-            No companies selected yet.
-          </div>
-        `;
-
+            stockList.innerHTML = "";
+            if (watchlist.length === 0) {
+                stockList.innerHTML = `<div class="w-full text-xs text-zinc-600 py-2">No entities tracked.</div>`;
             } else {
-
-                watchlist.forEach(
-                    symbol => {
-
-                        const chip =
-                            document.createElement(
-                                "div"
-                            );
-
-
-                        chip.className =
-                            `
-                stock-chip
-                inline-flex
-                items-center
-                gap-2
-                rounded-lg
-                border
-                border-[#c7a35e]/15
-                bg-[#c7a35e]/[.045]
-                px-3
-                py-2
-                text-[11px]
-                font-semibold
-                text-[#d9c083]
-              `;
-
-
-                        chip.innerHTML = `
-
-              <span>
-                ${escapeHtml(symbol)}
-              </span>
-
-              <button
-                type="button"
-                class="
-                  text-gray-600
-                  hover:text-white
-                  transition
-                "
-                data-symbol="${escapeAttr(symbol)}"
-                aria-label="Remove ${escapeAttr(symbol)}"
-              >
-                ×
-              </button>
-
-            `;
-
-
-                        const button =
-                            chip.querySelector(
-                                "button"
-                            );
-
-
-                        button.addEventListener(
-                            "click",
-                            () =>
-                                removeStock(
-                                    symbol
-                                )
-                        );
-
-
-                        stockList.appendChild(
-                            chip
-                        );
-
-                    }
-                );
-
+                watchlist.forEach(symbol => {
+                    const chip = document.createElement("div");
+                    chip.className = `stock-chip inline-flex items-center gap-1.5 rounded-md border border-theme-border bg-theme-muted px-2 py-1 text-[10px] font-semibold text-theme tracking-wide`;
+                    chip.innerHTML = `
+                        <span>${escapeHtml(symbol)}</span>
+                        <button type="button" class="text-theme hover:text-white ml-1" data-symbol="${escapeAttr(symbol)}">×</button>
+                    `;
+                    chip.querySelector("button").addEventListener("click", () => removeStock(symbol));
+                    stockList.appendChild(chip);
+                });
             }
-
-
             updateStockCount();
-
         }
-
 
         function updateStockCount() {
-
-            const count =
-                watchlist.length;
-
-
-            document
-                .getElementById(
-                    "stockCount"
-                )
-                .textContent =
-                `${count} stock${count === 1 ? "" : "s"}`;
-
-
-            document
-                .getElementById(
-                    "statStocks"
-                )
-                .textContent =
-                count;
-
+            const count = watchlist.length;
+            document.getElementById("stockCount").textContent = `${count} TICKER${count === 1 ? "" : "S"}`;
+            document.getElementById("statStocks").textContent = count;
         }
-
-
-        /* =====================================================
-           MODAL WATCHLIST
-        ====================================================== */
 
         function updateModalWatchlist() {
-
-            const container =
-                document.getElementById(
-                    "modalWatchlist"
-                );
-
-
-            if (
-                !watchlist.length
-            ) {
-
-                container.innerHTML = `
-          <span
-            class="text-xs text-gray-700"
-          >
-            No stocks selected.
-          </span>
-        `;
-
+            const container = document.getElementById("modalWatchlist");
+            if (!watchlist.length) {
+                container.innerHTML = `<span class="text-xs text-zinc-600">None</span>`;
                 return;
-
             }
-
-
-            container.innerHTML =
-                watchlist.map(
-                    symbol => `
-            <span
-              class="
-                px-2.5
-                py-1.5
-                rounded-lg
-                border
-                border-white/5
-                bg-[#111316]
-                text-[10px]
-                font-semibold
-                text-gray-400
-              "
-            >
-              ${escapeHtml(symbol)}
-            </span>
-          `
-                ).join("");
-
+            container.innerHTML = watchlist.map(s => `<span class="px-2 py-1 rounded border border-theme-border bg-theme-muted text-[10px] font-semibold text-theme">${escapeHtml(s)}</span>`).join("");
         }
-
-
-        /* =====================================================
-           SAVE WATCHLIST
-        ====================================================== */
 
         async function saveWatchlist() {
+            const email = emailInput.value.trim();
+            if (!email || !email.includes("@")) { emailInput.focus(); return showMessage("Valid email required.", "error"); }
+            if (!watchlist.length) return showMessage("Add at least one entity.", "error");
 
-            const email =
-                emailInput.value.trim();
-
-
-            if (
-                !email
-                ||
-                !email.includes("@")
-            ) {
-
-                showMessage(
-                    "Enter a valid delivery email.",
-                    "error"
-                );
-
-                emailInput.focus();
-
-                return;
-
-            }
-
-
-            if (
-                !watchlist.length
-            ) {
-
-                showMessage(
-                    "Add at least one stock.",
-                    "error"
-                );
-
-                return;
-
-            }
-
-
-            const button =
-                document.getElementById(
-                    "saveButton"
-                );
-
-
-            setLoading(
-                button,
-                "Saving..."
-            );
-
-
+            const button = document.getElementById("saveButton");
+            setLoading(button, "Saving...");
             try {
-
-                const data =
-                    await api(
-                        "/watch",
-                        {
-                            method:
-                                "POST",
-
-                            body:
-                                JSON.stringify(
-                                    {
-                                        email,
-
-                                        symbols:
-                                            watchlist
-                                    }
-                                )
-                        }
-                    );
-
-
-                emailInput.value =
-                    data.email || email;
-
-
-                watchlist =
-                    Array.isArray(
-                        data.symbols
-                    )
-                        ? data.symbols
-                        : watchlist;
-
-
+                const data = await api("/watch", { method: "POST", body: JSON.stringify({ email, symbols: watchlist }) });
+                emailInput.value = data.email || email;
+                watchlist = Array.isArray(data.symbols) ? data.symbols : watchlist;
                 saveLocalState();
-
                 renderWatchlist();
-
                 updateModalWatchlist();
-
-
-                showMessage(
-                    "Watchlist saved successfully.",
-                    "success"
-                );
-
-
+                showMessage("Configuration synchronized.", "success");
                 await loadAnnouncements();
-
-            } catch (
-            error
-            ) {
-
-                showMessage(
-                    error.message,
-                    "error"
-                );
-
-            } finally {
-
-                resetButton(
-                    button,
-                    "Save Watchlist"
-                );
-
-            }
-
+            } catch (error) { showMessage(error.message, "error"); }
+            finally { resetButton(button, "Save Configuration"); }
         }
-
-
-        /* =====================================================
-           LOAD ANNOUNCEMENTS
-        ====================================================== */
 
         async function loadAnnouncements() {
+            if (!watchlist.length) return;
+            const container = document.getElementById("announcementList");
+            container.innerHTML = `<div class="py-10 text-center"><span class="loader inline-block"></span><div class="mt-3 text-xs text-theme">Querying database...</div></div>`;
 
-            if (
-                !watchlist.length
-            ) {
-
-                return;
-
-            }
-
-
-            const container =
-                document.getElementById(
-                    "announcementList"
-                );
-
-
-            container.innerHTML = `
-        <div
-          class="
-            flex
-            items-center
-            justify-center
-            gap-3
-            py-16
-          "
-        >
-          <span class="loader"></span>
-
-          <span
-            class="
-              text-sm
-              text-gray-600
-            "
-          >
-            Loading research history...
-          </span>
-
-        </div>
-      `;
-
-
-            const all =
-                [];
-
-
-            for (
-                const symbol
-                of watchlist
-            ) {
-
+            const all = [];
+            for (const symbol of watchlist) {
                 try {
-
-                    const data =
-                        await api(
-                            `/announcements/${encodeURIComponent(symbol)}?limit=20`
-                        );
-
-
-                    if (
-                        Array.isArray(data)
-                    ) {
-
-                        all.push(
-                            ...data
-                        );
-
-                    }
-
-                } catch {
-
-                    // Continue loading other symbols.
-
-                }
-
+                    const data = await api(`/announcements/${encodeURIComponent(symbol)}?limit=20`);
+                    if (Array.isArray(data)) all.push(...data);
+                } catch { }
             }
-
-
-            all.sort(
-                (
-                    a,
-                    b
-                ) => {
-
-                    const da =
-                        new Date(
-                            a.broadcast_dt
-                            ||
-                            a.first_seen_at
-                            ||
-                            0
-                        );
-
-                    const db =
-                        new Date(
-                            b.broadcast_dt
-                            ||
-                            b.first_seen_at
-                            ||
-                            0
-                        );
-
-                    return (
-                        db.getTime()
-                        -
-                        da.getTime()
-                    );
-
-                }
-            );
-
-
-            renderAnnouncements(
-                all.slice(
-                    0,
-                    40
-                )
-            );
-
+            all.sort((a, b) => {
+                const da = new Date(a.broadcast_dt || a.first_seen_at || 0);
+                const db = new Date(b.broadcast_dt || b.first_seen_at || 0);
+                return db.getTime() - da.getTime();
+            });
+            renderAnnouncements(all.slice(0, 40));
         }
 
-
-        /* =====================================================
-           RENDER ANNOUNCEMENTS
-        ====================================================== */
-
-        function renderAnnouncements(
-            items
-        ) {
-
-            const container =
-                document.getElementById(
-                    "announcementList"
-                );
-
-
-            document
-                .getElementById(
-                    "statAnnouncements"
-                )
-                .textContent =
-                items.length;
-
-
-            if (
-                !items.length
-            ) {
-
-                container.innerHTML = `
-          <div
-            class="
-              py-16
-              text-center
-            "
-          >
-
-            <div
-              class="
-                w-14
-                h-14
-                mx-auto
-                rounded-2xl
-                border
-                border-white/5
-                bg-[#111316]
-                flex
-                items-center
-                justify-center
-                text-[#c7a35e]
-              "
-            >
-              —
-            </div>
-
-            <h3
-              class="
-                mt-4
-                font-semibold
-                text-gray-300
-              "
-            >
-              No stored filings
-            </h3>
-
-            <p
-              class="
-                mt-2
-                text-sm
-                text-gray-600
-              "
-            >
-              Generate a brief to fetch and analyse
-              current announcements.
-            </p>
-
-          </div>
-        `;
-
+        function renderAnnouncements(items) {
+            const container = document.getElementById("announcementList");
+            document.getElementById("statAnnouncements").textContent = items.length;
+            if (!items.length) {
+                container.innerHTML = `<div class="py-10 text-center text-sm text-zinc-600">No recent filings stored in database.</div>`;
                 return;
-
             }
-
-
-            container.innerHTML =
-                items.map(
-                    renderAnnouncementCard
-                ).join("");
-
+            container.innerHTML = items.map(renderAnnouncementCard).join("");
         }
 
+        function renderAnnouncementCard(item) {
+            const analysis = item.analysis || {};
+            const symbol = item.symbol || "UNKNOWN";
+            const headline = analysis.headline || item.subject || "Filing Received";
+            const summary = analysis.executive_summary || analysis.summary || item.details || "Awaiting processing.";
+            const importance = Math.max(0, Math.min(100, Number(analysis.importance || 0)));
+            const impact = String(analysis.impact || "unclear").toLowerCase();
+            const event = analysis.event_type || "other";
+            const date = formatDate(item.broadcast_dt || item.first_seen_at || item.broadcast_raw);
 
-        /* =====================================================
-           CARD
-        ====================================================== */
+            let impactClass = "border-zinc-800 bg-zinc-900 text-zinc-400";
+            if (impact === "positive") impactClass = "border-theme-border bg-theme-muted text-theme";
+            else if (impact === "negative") impactClass = "border-red-500/20 bg-red-500/10 text-red-400";
+            else if (impact === "mixed") impactClass = "border-zinc-600 bg-zinc-900 text-white";
 
-        function renderAnnouncementCard(
-            item
-        ) {
-
-            const analysis =
-                item.analysis || {};
-
-
-            const symbol =
-                item.symbol
-                ||
-                "UNKNOWN";
-
-
-            const headline =
-                analysis.headline
-                ||
-                item.subject
-                ||
-                "NSE Announcement";
-
-
-            const summary =
-                analysis.executive_summary
-                ||
-                analysis.summary
-                ||
-                item.details
-                ||
-                "Analysis unavailable.";
-
-
-            const importance =
-                Math.max(
-                    0,
-                    Math.min(
-                        100,
-                        Number(
-                            analysis.importance
-                            || 0
-                        )
-                    )
-                );
-
-
-            const impact =
-                String(
-                    analysis.impact
-                    ||
-                    "unclear"
-                ).toLowerCase();
-
-
-            const event =
-                analysis.event_type
-                ||
-                "other";
-
-
-            const date =
-                formatDate(
-                    item.broadcast_dt
-                    ||
-                    item.first_seen_at
-                    ||
-                    item.broadcast_raw
-                );
-
-
-            let impactClass =
-                "border-gray-800 bg-gray-900 text-gray-500";
-
-
-            if (
-                impact === "positive"
-            ) {
-
-                impactClass =
-                    "border-emerald-500/15 bg-emerald-500/5 text-emerald-400";
-
-            } else if (
-                impact === "negative"
-            ) {
-
-                impactClass =
-                    "border-red-500/15 bg-red-500/5 text-red-400";
-
-            } else if (
-                impact === "mixed"
-            ) {
-
-                impactClass =
-                    "border-yellow-500/15 bg-yellow-500/5 text-yellow-400";
-
-            }
-
-
-            const keyFacts =
-                Array.isArray(
-                    analysis.key_facts
-                )
-                    ? analysis.key_facts
-                    : [];
-
-
-            const keyNumbers =
-                Array.isArray(
-                    analysis.key_numbers
-                )
-                    ? analysis.key_numbers
-                    : [];
-
-
-            const watchItems =
-                Array.isArray(
-                    analysis.watch_items
-                )
-                    ? analysis.watch_items
-                    : [];
-
-
-            const filingLink =
-                item.attachment_url
-                    ? `
-            <a
-              href="${escapeAttr(item.attachment_url)}"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="
-                inline-flex
-                items-center
-                gap-2
-                text-[10px]
-                font-semibold
-                tracking-wider
-                text-[#c7a35e]
-                hover:text-[#e0c886]
-              "
-            >
-              ORIGINAL NSE FILING
-              <span>↗</span>
-            </a>
-          `
-                    : "";
-
+            const keyFacts = Array.isArray(analysis.key_facts) ? analysis.key_facts : [];
+            const keyNumbers = Array.isArray(analysis.key_numbers) ? analysis.key_numbers : [];
 
             return `
-        <article
-          class="
-            announcement-card
-            rounded-2xl
-            border
-            border-white/5
-            bg-[#0a0c0f]/70
-            p-5
-            md:p-6
-            mb-4
-          "
-        >
-
-          <div
-            class="
-              flex
-              flex-col
-              sm:flex-row
-              sm:items-start
-              sm:justify-between
-              gap-4
-            "
-          >
-
-            <div>
-
-              <div
-                class="
-                  flex
-                  flex-wrap
-                  items-center
-                  gap-2
-                "
-              >
-
-                <span
-                  class="
-                    inline-flex
-                    rounded-md
-                    bg-[#c7a35e]
-                    px-2.5
-                    py-1.5
-                    text-[10px]
-                    font-black
-                    text-[#111]
-                  "
-                >
-                  ${escapeHtml(symbol)}
-                </span>
-
-
-                <span
-                  class="
-                    rounded-md
-                    border
-                    border-white/5
-                    bg-[#111316]
-                    px-2.5
-                    py-1.5
-                    text-[9px]
-                    uppercase
-                    tracking-wider
-                    text-gray-500
-                  "
-                >
-                  ${escapeHtml(event)}
-                </span>
-
-              </div>
-
-            </div>
-
-
-            <div
-              class="
-                flex
-                items-center
-                gap-3
-              "
-            >
-
-              <span
-                class="
-                  text-[10px]
-                  text-gray-700
-                "
-              >
-                ${escapeHtml(date)}
-              </span>
-
-              <span
-                class="
-                  rounded-md
-                  border
-                  px-2.5
-                  py-1.5
-                  text-[9px]
-                  font-semibold
-                  tracking-wider
-                  ${impactClass}
-                "
-              >
-                ${escapeHtml(
-                impact.toUpperCase()
-            )}
-              </span>
-
-            </div>
-
-          </div>
-
-
-          <h3
-            class="
-              mt-5
-              font-display
-              text-2xl
-              leading-tight
-              text-[#eeeae1]
-            "
-          >
-            ${escapeHtml(headline)}
-          </h3>
-
-
-          <!-- SCORE -->
-
-          <div class="mt-5">
-
-            <div
-              class="
-                flex
-                items-center
-                justify-between
-                text-[10px]
-              "
-            >
-
-              <span
-                class="text-gray-600"
-              >
-                Materiality
-              </span>
-
-              <strong
-                class="text-[#c7a35e]"
-              >
-                ${importance}/100
-              </strong>
-
-            </div>
-
-
-            <div
-              class="
-                mt-2
-                h-1
-                rounded-full
-                bg-gray-900
-                overflow-hidden
-              "
-            >
-
-              <div
-                class="
-                  score-fill
-                  h-full
-                  rounded-full
-                  bg-[#c7a35e]
-                "
-                style="
-                  width:${importance}%;
-                "
-              ></div>
-
-            </div>
-
-          </div>
-
-
-          <!-- SUMMARY -->
-
-          <div
-            class="
-              mt-5
-              text-sm
-              leading-7
-              text-gray-400
-            "
-          >
-            ${escapeHtml(summary)}
-          </div>
-
-
-          ${analysis.why_it_matters
-                    ? `
-                <div
-                  class="
-                    mt-5
-                    rounded-xl
-                    border
-                    border-[#c7a35e]/10
-                    bg-[#c7a35e]/[.025]
-                    p-4
-                  "
-                >
-
-                  <div
-                    class="
-                      text-[9px]
-                      uppercase
-                      tracking-[.18em]
-                      font-bold
-                      text-[#c7a35e]
-                    "
-                  >
-                    Why it matters
-                  </div>
-
-                  <p
-                    class="
-                      mt-2
-                      text-xs
-                      leading-6
-                      text-gray-500
-                    "
-                  >
-                    ${escapeHtml(
-                        analysis.why_it_matters
-                    )}
-                  </p>
-
+            <article class="mb-4 rounded-lg border border-zinc-800 bg-black p-5 relative overflow-hidden">
+                <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3 mb-4">
+                    <div class="flex items-center gap-2">
+                        <span class="px-2 py-1 rounded bg-theme text-[10px] font-bold text-black uppercase">${escapeHtml(symbol)}</span>
+                        <span class="px-2 py-1 rounded border border-theme-border bg-theme-muted text-[9px] uppercase tracking-wider text-theme">${escapeHtml(event)}</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="text-[10px] text-zinc-500">${escapeHtml(date)}</span>
+                        <span class="px-2 py-1 rounded text-[9px] font-bold uppercase tracking-wider ${impactClass}">${escapeHtml(impact)}</span>
+                    </div>
                 </div>
-              `
-                    : ""
-                }
+                
+                <h3 class="text-lg font-semibold text-white mb-4">${escapeHtml(headline)}</h3>
 
+                <div class="mb-4">
+                    <div class="flex justify-between text-[10px] uppercase tracking-wider font-semibold text-zinc-500 mb-1.5">
+                        <span>Materiality Index</span>
+                        <span class="text-theme">${importance}/100</span>
+                    </div>
+                    <div class="h-1 w-full bg-zinc-900 rounded-full overflow-hidden">
+                        <div class="h-full bg-theme transition-all duration-500" style="width: ${importance}%"></div>
+                    </div>
+                </div>
 
-          ${keyFacts.length
-                    ? `
+                <p class="text-sm leading-relaxed text-zinc-400 mb-4">${escapeHtml(summary)}</p>
+
+                ${keyFacts.length ? `
+                <div class="mt-4 pt-4 border-t border-zinc-900">
+                    <div class="text-[9px] font-bold uppercase tracking-widest text-theme mb-2">Key Insights</div>
+                    <ul class="space-y-1 list-inside list-disc text-xs text-zinc-400">
+                        ${keyFacts.slice(0, 4).map(f => `<li>${escapeHtml(f)}</li>`).join('')}
+                    </ul>
+                </div>` : ''}
+
+                ${keyNumbers.length ? `
+                <div class="mt-4 pt-4 border-t border-zinc-900">
+                    <div class="text-[9px] font-bold uppercase tracking-widest text-theme mb-2">Extracted Metrics</div>
+                    <div class="flex flex-wrap gap-2">
+                        ${keyNumbers.slice(0, 6).map(n => `<span class="px-2 py-1 rounded border border-zinc-800 bg-zinc-900 text-[10px] font-medium text-theme">${escapeHtml(n)}</span>`).join('')}
+                    </div>
+                </div>` : ''}
+
+                ${item.attachment_url ? `
                 <div class="mt-5">
-
-                  <div
-                    class="
-                      text-[9px]
-                      uppercase
-                      tracking-[.18em]
-                      font-bold
-                      text-gray-600
-                    "
-                  >
-                    Key facts
-                  </div>
-
-                  <ul
-                    class="
-                      mt-2
-                      space-y-1.5
-                      pl-4
-                      list-disc
-                    "
-                  >
-                    ${keyFacts
-                        .slice(0, 8)
-                        .map(
-                            fact =>
-                                `
-                              <li
-                                class="
-                                  text-xs
-                                  leading-5
-                                  text-gray-500
-                                "
-                              >
-                                ${escapeHtml(
-                                    fact
-                                )}
-                              </li>
-                            `
-                        )
-                        .join("")
-                    }
-                  </ul>
-
-                </div>
-              `
-                    : ""
-                }
-
-
-          ${keyNumbers.length
-                    ? `
-                <div class="mt-5">
-
-                  <div
-                    class="
-                      text-[9px]
-                      uppercase
-                      tracking-[.18em]
-                      font-bold
-                      text-gray-600
-                    "
-                  >
-                    Key numbers
-                  </div>
-
-                  <div
-                    class="
-                      mt-2
-                      flex
-                      flex-wrap
-                      gap-2
-                    "
-                  >
-                    ${keyNumbers
-                        .slice(0, 10)
-                        .map(
-                            value =>
-                                `
-                              <span
-                                class="
-                                  rounded-lg
-                                  border
-                                  border-white/5
-                                  bg-[#111316]
-                                  px-3
-                                  py-2
-                                  text-[10px]
-                                  text-gray-400
-                                "
-                              >
-                                ${escapeHtml(
-                                    value
-                                )}
-                              </span>
-                            `
-                        )
-                        .join("")
-                    }
-                  </div>
-
-                </div>
-              `
-                    : ""
-                }
-
-
-          ${watchItems.length
-                    ? `
-                <div
-                  class="
-                    mt-5
-                    rounded-xl
-                    border-l-2
-                    border-[#c7a35e]
-                    bg-[#111111]
-                    p-4
-                  "
-                >
-
-                  <div
-                    class="
-                      text-[9px]
-                      uppercase
-                      tracking-[.18em]
-                      font-bold
-                      text-[#c7a35e]
-                    "
-                  >
-                    What to watch
-                  </div>
-
-                  <ul
-                    class="
-                      mt-2
-                      space-y-1.5
-                      pl-4
-                      list-disc
-                    "
-                  >
-                    ${watchItems
-                        .slice(0, 6)
-                        .map(
-                            item =>
-                                `
-                              <li
-                                class="
-                                  text-xs
-                                  leading-5
-                                  text-gray-500
-                                "
-                              >
-                                ${escapeHtml(
-                                    item
-                                )}
-                              </li>
-                            `
-                        )
-                        .join("")
-                    }
-                  </ul>
-
-                </div>
-              `
-                    : ""
-                }
-
-
-          ${filingLink
-                    ? `
-                <div
-                  class="
-                    mt-6
-                    pt-4
-                    border-t
-                    border-white/5
-                  "
-                >
-                  ${filingLink}
-                </div>
-              `
-                    : ""
-                }
-
-        </article>
-      `;
-
+                    <a href="${escapeAttr(item.attachment_url)}" target="_blank" class="inline-flex items-center gap-1.5 text-[10px] font-semibold text-theme hover:text-white uppercase tracking-widest transition-colors">
+                        View Source PDF <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                    </a>
+                </div>` : ''}
+            </article>`;
         }
-
-
-        /* =====================================================
-           REPORT MODAL
-        ====================================================== */
 
         function openReportModal() {
-
-            const email =
-                emailInput.value.trim();
-
-
-            if (
-                !email
-                ||
-                !email.includes("@")
-            ) {
-
-                showMessage(
-                    "Enter your delivery email first.",
-                    "error"
-                );
-
-                emailInput.focus();
-
-                return;
-
-            }
-
-
-            if (
-                !watchlist.length
-            ) {
-
-                showMessage(
-                    "Add at least one stock first.",
-                    "error"
-                );
-
-                return;
-
-            }
-
-
+            const email = emailInput.value.trim();
+            if (!email || !email.includes("@")) { emailInput.focus(); return showMessage("Delivery email required.", "error"); }
+            if (!watchlist.length) return showMessage("Watchlist cannot be empty.", "error");
             updateModalWatchlist();
-
-
-            document
-                .getElementById(
-                    "reportModal"
-                )
-                .classList.remove(
-                    "hidden"
-                );
-
+            document.getElementById("reportModal").classList.remove("hidden");
         }
-
 
         function closeReportModal() {
-
-            document
-                .getElementById(
-                    "reportModal"
-                )
-                .classList.add(
-                    "hidden"
-                );
-
+            document.getElementById("reportModal").classList.add("hidden");
         }
-
-
-        /* =====================================================
-           GENERATE REPORT
-        ====================================================== */
 
         async function generateReport() {
+            const email = emailInput.value.trim();
+            const button = document.getElementById("generateButton");
 
-            const email =
-                emailInput.value.trim();
-
-
-            if (
-                !email
-                ||
-                !email.includes("@")
-            ) {
-
-                showReportStatus(
-                    "Enter a valid email address.",
-                    true
-                );
-
-                return;
-
-            }
-
-
-            if (
-                !watchlist.length
-            ) {
-
-                showReportStatus(
-                    "Your watchlist is empty.",
-                    true
-                );
-
-                return;
-
-            }
-
-
-            const button =
-                document.getElementById(
-                    "generateButton"
-                );
-
-
-            setLoading(
-                button,
-                "Analysing filings..."
-            );
-
-
-            setReportStatus(
-                "Saving your watchlist..."
-            );
-
-
-            document
-                .getElementById(
-                    "statAI"
-                )
-                .textContent =
-                "Working";
-
+            setLoading(button, "Executing Workflow...");
+            setReportStatus("Synchronizing configuration...");
+            document.getElementById("statAI").textContent = "Running";
 
             try {
-
-                /*
-                  Make absolutely sure the current UI
-                  watchlist is synchronized with backend.
-                */
-
-                await api(
-                    "/watch",
-                    {
-                        method:
-                            "POST",
-
-                        body:
-                            JSON.stringify(
-                                {
-                                    email,
-
-                                    symbols:
-                                        watchlist
-                                }
-                            )
-                    }
-                );
-
-
+                await api("/watch", { method: "POST", body: JSON.stringify({ email, symbols: watchlist }) });
                 saveLocalState();
 
+                setReportStatus("Processing documents via inference engine...");
+                const result = await api(`/send-watchlist-analysis/${encodeURIComponent(email)}`, { method: "POST" });
 
-                setReportStatus(
-                    "Fetching NSE announcements..."
-                );
+                document.getElementById("statAI").textContent = "Standby";
+                setReportStatus(`Execution complete.`);
 
-
-                const result =
-                    await api(
-                        `/send-watchlist-analysis/${encodeURIComponent(email)}`,
-                        {
-                            method:
-                                "POST"
-                        }
-                    );
-
-
-                document
-                    .getElementById(
-                        "statAI"
-                    )
-                    .textContent =
-                    "Ready";
-
-
-                setReportStatus(
-                    `Brief generated successfully. ${result.announcements_found} announcement${result.announcements_found === 1 ? "" : "s"} included.`
-                );
-
-
-                const reportResult =
-                    document.getElementById(
-                        "reportResult"
-                    );
-
-
-                reportResult.classList.remove(
-                    "hidden"
-                );
-
-
+                const reportResult = document.getElementById("reportResult");
+                reportResult.classList.remove("hidden");
                 reportResult.innerHTML = `
-
-          <div
-            class="
-              rounded-xl
-              border
-              border-emerald-500/15
-              bg-emerald-500/5
-              p-4
-            "
-          >
-
-            <div
-              class="
-                flex
-                gap-3
-              "
-            >
-
-              <div
-                class="
-                  w-9
-                  h-9
-                  rounded-lg
-                  bg-emerald-500/10
-                  flex
-                  items-center
-                  justify-center
-                  text-emerald-400
-                "
-              >
-                ✓
-              </div>
-
-              <div>
-
-                <div
-                  class="
-                    text-sm
-                    font-semibold
-                    text-emerald-300
-                  "
-                >
-                  Intelligence brief sent
-                </div>
-
-                <div
-                  class="
-                    mt-1
-                    text-xs
-                    leading-5
-                    text-gray-500
-                  "
-                >
-                  ${result.announcements_found}
-                  filing${result.announcements_found === 1 ? "" : "s"}
-                  analysed for
-                  ${escapeHtml(
-                    result.symbols.join(", ")
-                )}.
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        `;
-
+                <div class="rounded-md border border-theme-border bg-theme-muted p-4 flex items-start gap-3">
+                    <div class="text-theme mt-0.5">✓</div>
+                    <div>
+                        <div class="text-sm font-semibold text-theme">Brief Dispatched</div>
+                        <div class="mt-1 text-xs text-zinc-400">Successfully processed ${result.announcements_found} documents for ${escapeHtml(result.symbols.join(", "))}.</div>
+                    </div>
+                </div>`;
 
                 await loadAnnouncements();
-
-
-            } catch (
-            error
-            ) {
-
-                document
-                    .getElementById(
-                        "statAI"
-                    )
-                    .textContent =
-                    "Error";
-
-
-                setReportStatus(
-                    error.message,
-                    true
-                );
-
+            } catch (error) {
+                document.getElementById("statAI").textContent = "Fault";
+                setReportStatus(error.message, true);
             } finally {
-
-                resetButton(
-                    button,
-                    "Generate & Send Brief"
-                );
-
+                resetButton(button, "Execute Pipeline & Send");
             }
-
         }
 
-
-        /* =====================================================
-           REPORT STATUS
-        ====================================================== */
-
-        function setReportStatus(
-            message,
-            error = false
-        ) {
-
-            const element =
-                document.getElementById(
-                    "reportStatus"
-                );
-
-
-            element.textContent =
-                message;
-
-
-            element.className =
-                error
-                    ? `
-            mt-6
-            text-sm
-            leading-6
-            text-red-400
-          `
-                    : `
-            mt-6
-            text-sm
-            leading-6
-            text-gray-500
-          `;
-
+        function setReportStatus(message, error = false) {
+            const el = document.getElementById("reportStatus");
+            el.textContent = message;
+            el.className = `text-sm font-medium mb-6 ${error ? 'text-red-400' : 'text-zinc-400'}`;
         }
 
-
-        function showReportStatus(
-            message,
-            error = false
-        ) {
-
-            setReportStatus(
-                message,
-                error
-            );
-
+        function showMessage(message, type) {
+            const el = document.getElementById("message");
+            el.classList.remove("hidden");
+            el.className = `mt-2 rounded-md border p-3 text-xs font-medium leading-5 ${type === 'error' ? 'border-red-900/50 bg-red-950/30 text-red-400' : 'border-theme-border bg-theme-muted text-theme'}`;
+            el.textContent = message;
+            clearTimeout(window.messageTimer);
+            window.messageTimer = setTimeout(() => el.classList.add("hidden"), 5000);
         }
 
-
-        /* =====================================================
-           MESSAGE
-        ====================================================== */
-
-        function showMessage(
-            message,
-            type
-        ) {
-
-            const element =
-                document.getElementById(
-                    "message"
-                );
-
-
-            element.classList.remove(
-                "hidden"
-            );
-
-
-            if (
-                type === "error"
-            ) {
-
-                element.className =
-                    `
-            mt-4
-            rounded-xl
-            border
-            border-red-500/10
-            bg-red-500/5
-            p-3
-            text-xs
-            leading-5
-            text-red-400
-          `;
-
-            } else {
-
-                element.className =
-                    `
-            mt-4
-            rounded-xl
-            border
-            border-emerald-500/10
-            bg-emerald-500/5
-            p-3
-            text-xs
-            leading-5
-            text-emerald-400
-          `;
-
-            }
-
-
-            element.textContent =
-                message;
-
-
-            clearTimeout(
-                window.messageTimer
-            );
-
-
-            window.messageTimer =
-                setTimeout(
-                    () => {
-
-                        element.classList.add(
-                            "hidden"
-                        );
-
-                    },
-                    6000
-                );
-
+        function setLoading(button, text) {
+            button.disabled = true;
+            button.dataset.originalText = button.textContent;
+            button.innerHTML = `<span class="inline-flex items-center justify-center gap-2"><span class="loader border-black border-t-transparent"></span><span>${escapeHtml(text)}</span></span>`;
+            button.classList.add("opacity-60", "cursor-wait");
         }
 
-
-        /* =====================================================
-           BUTTON HELPERS
-        ====================================================== */
-
-        function setLoading(
-            button,
-            text
-        ) {
-
-            button.disabled =
-                true;
-
-            button.dataset.originalText =
-                button.textContent;
-
-
-            button.innerHTML = `
-        <span
-          class="
-            inline-flex
-            items-center
-            justify-center
-            gap-2
-          "
-        >
-          <span
-            class="loader"
-          ></span>
-
-          <span>
-            ${escapeHtml(text)}
-          </span>
-        </span>
-      `;
-
-
-            button.classList.add(
-                "opacity-70",
-                "cursor-not-allowed"
-            );
-
+        function resetButton(button, text) {
+            button.disabled = false;
+            button.innerHTML = text;
+            button.classList.remove("opacity-60", "cursor-wait");
         }
 
+        function escapeHtml(value) {
+            if (value == null) return "";
+            return String(value).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        }
+        function escapeAttr(value) { return escapeHtml(value); }
 
-        function resetButton(
-            button,
-            text
-        ) {
-
-            button.disabled =
-                false;
-
-
-            button.innerHTML =
-                text;
-
-
-            button.classList.remove(
-                "opacity-70",
-                "cursor-not-allowed"
-            );
-
+        function formatDate(value) {
+            if (!value) return "Unknown date";
+            const date = new Date(value);
+            if (Number.isNaN(date.getTime())) return String(value);
+            return date.toLocaleString("en-IN", { day: "2-digit", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" });
         }
 
-
-        /* =====================================================
-           FORMATTING / SECURITY
-        ====================================================== */
-
-        function escapeHtml(
-            value
-        ) {
-
-            if (
-                value === null
-                ||
-                value === undefined
-            ) {
-
-                return "";
-
-            }
-
-
-            return String(
-                value
-            )
-                .replaceAll(
-                    "&",
-                    "&amp;"
-                )
-                .replaceAll(
-                    "<",
-                    "&lt;"
-                )
-                .replaceAll(
-                    ">",
-                    "&gt;"
-                )
-                .replaceAll(
-                    '"',
-                    "&quot;"
-                )
-                .replaceAll(
-                    "'",
-                    "&#039;"
-                );
-
-        }
-
-
-        function escapeAttr(
-            value
-        ) {
-
-            return escapeHtml(
-                value
-            );
-
-        }
-
-
-        function formatDate(
-            value
-        ) {
-
-            if (!value) {
-
-                return "Unknown time";
-
-            }
-
-
-            const date =
-                new Date(
-                    value
-                );
-
-
-            if (
-                Number.isNaN(
-                    date.getTime()
-                )
-            ) {
-
-                return String(
-                    value
-                );
-
-            }
-
-
-            return date.toLocaleString(
-                "en-IN",
-                {
-                    day: "2-digit",
-                    month: "short",
-                    year: "numeric",
-                    hour: "2-digit",
-                    minute: "2-digit"
-                }
-            );
-
-        }
-
-
-        /* =====================================================
-           KEYBOARD
-        ====================================================== */
-
-        document.addEventListener(
-            "keydown",
-            event => {
-
-                if (
-                    event.key === "Escape"
-                ) {
-
-                    closeReportModal();
-
-                }
-
-            }
-        );
-
-
-        document
-            .getElementById(
-                "stockBulkInput"
-            )
-            .addEventListener(
-                "keydown",
-                event => {
-
-                    /*
-                      Ctrl+Enter / Cmd+Enter adds the
-                      entire pasted list.
-                    */
-
-                    if (
-                        event.key === "Enter"
-                        &&
-                        (
-                            event.ctrlKey
-                            ||
-                            event.metaKey
-                        )
-                    ) {
-
-                        event.preventDefault();
-
-                        addBulkStocks();
-
-                    }
-
-                }
-            );
-
-
-        /*
-          Click backdrop to close modal.
-        */
-
-        document
-            .getElementById(
-                "reportModal"
-            )
-            .addEventListener(
-                "click",
-                event => {
-
-                    if (
-                        event.target.id
-                        ===
-                        "reportModal"
-                    ) {
-
-                        closeReportModal();
-
-                    }
-
-                }
-            );
-
+        document.addEventListener("keydown", e => { if (e.key === "Escape") closeReportModal(); });
+        document.getElementById("stockBulkInput").addEventListener("keydown", e => {
+            if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) { e.preventDefault(); addBulkStocks(); }
+        });
+        document.getElementById("reportModal").addEventListener("click", e => {
+            if (e.target.id === "reportModal") closeReportModal();
+        });
     </script>
-
 </body>
 
 </html>
