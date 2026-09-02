@@ -1,0 +1,9 @@
+fastapi>=0.116
+uvicorn[standard]>=0.35
+httpx>=0.28
+pymongo>=4.13
+pydantic>=2.11
+pydantic-settings>=2.10
+email-validator>=2.2
+openai>=1.99
+PyMuPDF>=1.26
